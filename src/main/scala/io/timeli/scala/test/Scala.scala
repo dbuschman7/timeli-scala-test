@@ -2,7 +2,7 @@ package io.timeli.scala.test
 
 class Scala {
 
-  // example how your answers work with comments, be verbose
+  // document how your answers work with comments, be verbose
   
   def fibonacci(number: Int): Seq[Long] = ???
 
