@@ -21,7 +21,8 @@ class FibonacciTest extends FunSuite {
 
     // split that list of fibonacci numbers into a list of 
     // even numbers and a list of odd numbers
-    val (evens, odds) = sc.split(fibs, ???)
+    // pass predicate that returns true if even and false if odd
+    val (evens, odds) = sc.split(fibs, (num:Long) => num % 2 == 0)
     evens should have size 27
     odds should have size 53
     evens.take(5) should be(List(0, 2, 8, 34, 144))
@@ -36,8 +37,11 @@ class FibonacciTest extends FunSuite {
     // primes and fibonacci numbers and print them to the console 
     val fibPrimes = sc.fibPrimes(fibs, primes)
     fibPrimes should be(List(2, 3, 5, 13, 89, 233, 1597))
-    
-    ???
+
+    // not entirely sure what this ??? was for. was it just for printing out the fibprimes to the console per the comment above?
+
+    // print to console
+    fibPrimes.foreach({primeFib => println(primeFib) })
   }
 
 }
