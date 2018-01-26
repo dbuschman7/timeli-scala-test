@@ -6,7 +6,12 @@ class Scala {
   
   def fibonacci(number: Int): Seq[Long] = ???
 
-  def split[A](list: Seq[A], f: A => Boolean): (Seq[A], Seq[A]) = ???
+  def split[A](list: Seq[A], f: A => Boolean): (Seq[A], Seq[A]) = {
+    val passed = list.filter(f)
+    val failed = list.filter(!f(_))
+
+    (passed, failed)
+  }
 
   def primes(number: Int): Seq[Int] = ???
 
