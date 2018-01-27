@@ -6,7 +6,7 @@ class Scala {
 
   // Returns the first N fibonacci numbers.
   def fibonacci(number: Int): Seq[Long] = {
-    def accumulator(previous2: Int, previous1: Int, accumulated: Seq[Long]): Seq[Long] = {
+    def accumulator(previous2: Long, previous1: Long, accumulated: Seq[Long]): Seq[Long] = {
       val next = previous2 + previous1
 
       // If we have already accumulated the correct number of fibonacci's, just return the values gathered
@@ -53,8 +53,8 @@ class Scala {
     Stream.from(2).filter(isPrime).take(number)
   }
 
-  // This is really just a set union problem...
+  // This is really just a set intersection problem...
   def fibPrimes(fibs: Seq[Long], primes: Seq[Int]): Seq[Long] = {
-    primes.toSet.union(fibs.toSet).toSeq
+    primes.map(_.toLong).toSet.intersect(fibs.toSet).toSeq.sorted
   }
 }
