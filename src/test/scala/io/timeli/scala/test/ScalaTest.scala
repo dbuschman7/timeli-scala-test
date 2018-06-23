@@ -18,7 +18,7 @@ class FibonacciTest extends FunSuite with Matchers {
     // split that list of fibonacci numbers into a list of 
     // even numbers and a list of odd numbers
     val results = Time.repeated("Fibanacci - Split", 100) {
-      sc.split(fibs, ???)
+      sc.split(fibs, sc.isEven)
     }.head
 
     val evens = results._1
@@ -43,8 +43,8 @@ class FibonacciTest extends FunSuite with Matchers {
     }.head
 
     fibPrimes should be(List(2, 3, 5, 13, 89, 233, 1597))
-    
-    ???
+
+    fibPrimes.foreach(println)
   }
 
 }
